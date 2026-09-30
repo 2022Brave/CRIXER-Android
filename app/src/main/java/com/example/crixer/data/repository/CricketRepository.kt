@@ -2,10 +2,10 @@ package com.example.crixer.data.repository
 
 import com.example.crixer.domain.data.CricketDataProvider
 import com.example.crixer.domain.model.CrixerMatch
-import com.example.crixer.domain.validation.CrixerDataValidator
+import com.example.crixer.domain.validation.CricketDataValidator
 import com.example.crixer.domain.validation.ValidationResult
 
-class CricketRepository(private val provider: CricketDataProvider, private val validator: CrixerDataValidator) {
+class CricketRepository(private val provider: CricketDataProvider, private val validator: CricketDataValidator) {
     suspend fun live(): Result<List<CrixerMatch>> = load { provider.getLiveMatches() }
     suspend fun upcoming(): Result<List<CrixerMatch>> = load { provider.getUpcomingMatches() }
     suspend fun completed(): Result<List<CrixerMatch>> = load { provider.getCompletedMatches() }
