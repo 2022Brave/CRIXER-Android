@@ -41,7 +41,7 @@ class MainActivity : ComponentActivity() {
                         Text(
                             when {
                                 state.isLoading -> "Initializing cricket data engine…"
-                                state.error != null -> state.error
+                                state.error != null -> state.error ?: "Cricket data unavailable"
                                 state.liveCount == 0 -> "No verified live matches available."
                                 else -> state.liveCount.toString() + " verified live matches."
                             },
